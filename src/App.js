@@ -38,7 +38,10 @@ function App() {
     };
 
     try {
-      const response = await axios.post('<your heroku app url>', payload);
+      const response = await axios.post(
+        '<your heroku app url>/v1/auth/init',
+        payload
+      );
 
       const { apiKey, user, token } = response.data;
       chatClient = new StreamChat(apiKey);
